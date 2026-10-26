@@ -1,0 +1,27 @@
+{
+  "conflicts_all_14_features": {
+    "duplicate_rows": 111,
+    "duplicate_groups": 54,
+    "conflicting_groups": 5,
+    "rows_in_conflicting_groups": 10
+  },
+  "conflicts_13_features_without_fnlwgt": {
+    "duplicate_rows": 11174,
+    "duplicate_groups": 3771,
+    "conflicting_groups": 1029,
+    "rows_in_conflicting_groups": 3873
+  },
+  "rule_violations_full_data": {
+    "age_out_of_range": 0,
+    "hours_out_of_range": 0,
+    "capital_gain_out_of_range": 0,
+    "capital_loss_out_of_range": 0,
+    "education_vs_education_num": 0,
+    "husband_female_or_wife_male": 4,
+    "spouse_role_but_not_married": 0,
+    "never_worked_but_has_occupation": 0,
+    "young_with_postgrad_degree": 2,
+    "gain_and_loss_both_positive": 0
+  },
+  "sample_rows_with_auto_flags": 0
+}

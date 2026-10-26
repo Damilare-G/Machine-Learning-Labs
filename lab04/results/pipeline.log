@@ -1,0 +1,12 @@
+2026-10-26 23:11:28,597 INGEST rows=48842 (expected 48842) cols=15 (expected 15) -> OK
+2026-10-26 23:11:28,916 VALIDATE 47 checks, 0 with violations (0 offending values); rows kept: 48842
+2026-10-26 23:11:29,190 SPLIT train=34189 test=14653 | train exact duplicates removed=24
+2026-10-26 23:11:29,190 CLEAN imputed/clipped cells train={'imputed_cells': 4446, 'clipped_cells': 2357} test={'imputed_cells': 2013, 'clipped_cells': 1026}
+2026-10-26 23:11:29,237 test rows that also appear (exactly) in cleaned train: 24
+2026-10-26 23:11:30,266 BASELINE
+       features  n_features_in  accuracy  f1_>50K
+without derived             14    0.8540   0.6601
+   with derived             16    0.8578   0.6696
+2026-10-26 23:11:30,426 AUDIT {"conflicts_all_14_features": {"duplicate_rows": 111, "duplicate_groups": 54, "conflicting_groups": 5, "rows_in_conflicting_groups": 10}, "conflicts_13_features_without_fnlwgt": {"duplicate_rows": 11174, "duplicate_groups": 3771, "conflicting_groups": 1029, "rows_in_conflicting_groups": 3873}, "rule_violations_full_data": {"age_out_of_range": 0, "hours_out_of_range": 0, "capital_gain_out_of_range": 0, "capital_loss_out_of_range": 0, "education_vs_education_num": 0, "husband_female_or_wife_male": 4, "spouse_role_but_not_married": 0, "never_worked_but_has_occupation": 0, "young_with_postgrad_degree": 2, "gain_and_loss_both_positive": 0}, "sample_rows_with_auto_flags": 0}
+2026-10-26 23:11:31,308 SHA256 train=19ac4fe5235d102dec2459ffafecc5028aaa820779cdb0cb1b6d62995cbcb62a test=d0a736f56244c5d3b8e708df1d7069d11740d00e2dd47be44ad4e7d41ffea77b combined=8cb87468caf8ee62e8c259905c56df14a1954c24ce2698e8b382bcbc4bc257a2
+2026-10-26 23:11:31,354 DONE. Outputs in C:\Users\Lenovo\Desktop\Oyefara Damilare 5th Semester\Machine Learning (SPEC- Engineering of Artificial Intelligence), Project\repo\lab04\results

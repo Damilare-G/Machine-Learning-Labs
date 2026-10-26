@@ -1,0 +1,48 @@
+check,column,n_violations,status,detail
+row_count,*,0,PASS,48842 rows (expected 48842)
+column_count,*,0,PASS,15 columns (expected 15)
+columns_present,*,0,PASS,all 15 present
+type_int,age,0,PASS,dtype int64; 0 non-whole values (OpenML stores integers as float)
+type_category,workclass,0,PASS,dtype category
+type_int,fnlwgt,0,PASS,dtype int64; 0 non-whole values (OpenML stores integers as float)
+type_category,education,0,PASS,dtype category
+type_int,education-num,0,PASS,dtype int64; 0 non-whole values (OpenML stores integers as float)
+type_category,marital-status,0,PASS,dtype category
+type_category,occupation,0,PASS,dtype category
+type_category,relationship,0,PASS,dtype category
+type_category,race,0,PASS,dtype category
+type_category,sex,0,PASS,dtype category
+type_int,capital-gain,0,PASS,dtype int64; 0 non-whole values (OpenML stores integers as float)
+type_int,capital-loss,0,PASS,dtype int64; 0 non-whole values (OpenML stores integers as float)
+type_int,hours-per-week,0,PASS,dtype int64; 0 non-whole values (OpenML stores integers as float)
+type_category,native-country,0,PASS,dtype category
+type_category,income,0,PASS,dtype category
+range,age,0,PASS,"allowed [17, 90]; observed [17, 90]"
+range,hours-per-week,0,PASS,"allowed [1, 99]; observed [1, 99]"
+range,capital-gain,0,PASS,"allowed [0, 99999]; observed [0, 99999]"
+range,capital-loss,0,PASS,"allowed [0, 4356]; observed [0, 4356]"
+missing,age,0,INFO,0 NaN + 0 '?' (0.00%)
+missing,workclass,2799,INFO,2799 NaN + 0 '?' (5.73%)
+missing,fnlwgt,0,INFO,0 NaN + 0 '?' (0.00%)
+missing,education,0,INFO,0 NaN + 0 '?' (0.00%)
+missing,education-num,0,INFO,0 NaN + 0 '?' (0.00%)
+missing,marital-status,0,INFO,0 NaN + 0 '?' (0.00%)
+missing,occupation,2809,INFO,2809 NaN + 0 '?' (5.75%)
+missing,relationship,0,INFO,0 NaN + 0 '?' (0.00%)
+missing,race,0,INFO,0 NaN + 0 '?' (0.00%)
+missing,sex,0,INFO,0 NaN + 0 '?' (0.00%)
+missing,capital-gain,0,INFO,0 NaN + 0 '?' (0.00%)
+missing,capital-loss,0,INFO,0 NaN + 0 '?' (0.00%)
+missing,hours-per-week,0,INFO,0 NaN + 0 '?' (0.00%)
+missing,native-country,857,INFO,857 NaN + 0 '?' (1.75%)
+missing,income,0,INFO,0 NaN + 0 '?' (0.00%)
+allowed_categories,workclass,0,PASS,all values allowed
+allowed_categories,education,0,PASS,all values allowed
+allowed_categories,marital-status,0,PASS,all values allowed
+allowed_categories,occupation,0,PASS,all values allowed
+allowed_categories,relationship,0,PASS,all values allowed
+allowed_categories,race,0,PASS,all values allowed
+allowed_categories,sex,0,PASS,all values allowed
+allowed_categories,native-country,0,PASS,all values allowed
+allowed_categories,income,0,PASS,all values allowed
+exact_duplicate_rows,*,52,INFO,52 rows repeat an earlier row (kept in report; handled in cleaning)
