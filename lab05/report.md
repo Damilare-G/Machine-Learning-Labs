@@ -91,7 +91,7 @@ From these numbers:
 
 Overall, compilation helps **large, compute‑heavy workloads**, not small Python‑bound ones, and its benefit depends strongly on workload size and backend support.
 
-## 4. Three conclusions (own words)
+## 4. Three conclusions
 1. The scalar autograd engine is fully correct: its gradients match both PyTorch autograd and numerical central‑difference estimates to within about 1e‑9, and the computation graph structure is as expected for the required expression.
 2. The Value engine and PyTorch models learn identically on `make_moons`—same final loss and test accuracy—but PyTorch is roughly 828× faster thanks to vectorized tensor operations and optimized kernels.
 3. PyTorch’s execution modes show that tracing can slightly reduce overhead for tiny models, compilation is often unsupported or not beneficial on Windows for these workloads, and tensor contiguity and stride patterns have a strong, sometimes surprising impact on performance for elementwise ops, reductions, and matmul.
