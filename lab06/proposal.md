@@ -1,29 +1,46 @@
-# Individual Project Proposal
+# Individual Project Proposal: On-Device Keyword Spotting with INT8 Quantization
 
-**Student name:** Damilare Oyefara    **Student ID:** 73599    **Date:** 18 November 2026
+**Student:** Damilare Oyefara  **Student ID:** 73599
 
 ## Problem
-Recognise traffic signs from small camera crops on a resource-limited device (for example, a driver-assistance module or a phone app). Predictions must come back fast enough for real-time use, and the model must be small enough to ship on the device. Large CNNs are accurate but too big and too slow, so the goal is a compact model that keeps most of their accuracy.
+Voice assistants listen all the time for a small set of command words ("yes", "no", "stop", "go", ...).
+This detection has to run on cheap, low-power hardware with no cloud connection, so the model must be
+fast and small. I will build a keyword-spotting (KWS) classifier that meets an edge-device budget
+while keeping almost all the accuracy of a full-precision model.
 
 ## Dataset
-**GTSRB (German Traffic Sign Recognition Benchmark)**: about 39k training and 12.6k test RGB images across 43 sign classes. It loads with `torchvision.datasets.GTSRB`. Images vary in size, so all are resized to 32×32 and normalised. I will hold out 10% of the training set (seed 42) for validation. Known limits: the images come from German roads only, classes are imbalanced, and many images are consecutive frames of the same sign, so accuracy will overstate real-world performance on other countries and conditions. The dataset is public for research use.
+**Google Speech Commands v0.02:** about 105k one-second, 16 kHz audio clips of 35 words from
+about 2,600 speakers.
+- Task: the standard 12-class setup, which is 10 keywords (yes, no, up, down, left, right, on, off, stop, go)
+  plus "silence" and "unknown".
+- Splits: the official `validation_list.txt` / `testing_list.txt`. They are split by speaker, so the
+  same voice never appears in both train and test.
+- Input features: 40-band log-Mel spectrogram (about 49 × 40 per clip). Training augmentation:
+  time shift and background noise.
 
-## Success metric
-The distilled student model reaches **test accuracy ≥ 95%** on the official GTSRB test set and stays within 2 percentage points of the teacher, measured with a pinned environment and seed 42. It must also meet both deployment constraints below. Macro-F1 is a secondary metric, chosen because of the class imbalance.
+## Success Metrics
+| Metric | Target |
+|---|---|
+| Top-1 accuracy on the official test set | ≥ 92%, and ≤ 1 pp drop vs. FP32 baseline |
+| Latency (batch 1, single CPU thread, features + inference) | p95 ≤ 50 ms |
+| Model size on disk | ≤ 5 MB |
 
-## Deployment constraints
-- Single-image inference latency **≤ 50 ms** (median of 100 runs after warm-up, batch size 1, on my own CPU).
-- Model size **≤ 5 MB** (saved file size).
+Latency: 100 warm-up runs, then 1,000 timed runs; I will report p50 and p95.
+Size: the size of the saved model file (TorchScript).
 
-## Baseline
-- **Teacher:** ResNet-18 adapted to 32×32 inputs and 43 classes (about 11M parameters, about 45 MB in float32). Expected to be very accurate, but it breaks the 5 MB limit.
-- **Student before distillation:** a small CNN in the style of my Lab 3 model, trained on hard labels only, under the same training budget.
+## Deployment Constraints
+- Target: CPU-only edge device (laptop CPU limited to 1 thread, as a stand-in for a Raspberry Pi-class board).
+- **Latency ≤ 50 ms** per one-second clip, so the model can run in real time on a streaming window.
+- **Size ≤ 5 MB**, so it fits in flash memory alongside the application.
 
-## Planned optimization
-**Primary: knowledge distillation.** I will first train the teacher. Then I will train the small student CNN (target under 0.5M parameters, under 2 MB) on a loss that combines cross-entropy with the true labels and a KL-divergence loss on the teacher's softened outputs (temperature T, weight α). I will tune T ∈ {2, 4, 8} and α ∈ {0.5, 0.7, 0.9}. Expected effect: the student meets both limits and scores higher than the same student trained without the teacher. If time allows, I will also try INT8 quantization of the student as a stretch goal.
-
-## Evaluation plan
-One table will compare the teacher, the student without distillation, and the distilled student on accuracy, macro-F1, latency, model size and peak memory, all measured the same way. Every run will be tracked in MLflow, with seeds and configs kept in YAML (reusing the Lab 6 pipeline) so each number can be reproduced with one command.
+## Planned Optimization: Quantization
+1. **Baseline:** train a ResNet-style CNN (about 2M parameters, about 8 MB in FP32). This is over the size budget.
+2. **Post-training static quantization (PTQ):** quantize weights and activations to INT8 with PyTorch
+   (`torch.ao.quantization`), calibrating on about 500 training clips. Expected result: about 4× smaller (about 2 MB) and faster.
+3. **Quantization-aware training (QAT):** use this only if PTQ loses more than 1 pp of accuracy. It fine-tunes with simulated INT8 for a few epochs.
+4. **Comparison table:** FP32 vs. PTQ vs. QAT on accuracy, p50/p95 latency and size, plus per-class accuracy
+   to check which keywords suffer most.
 
 ## Risks
-The student may not reach 95% without more epochs or augmentation, and the distillation hyperparameters may need more tuning than planned. Latency also depends on the CPU, so all models will be measured on the same machine.
+- Some layers may not support INT8. Fallback: keep those layers in FP32.
+- Feature extraction might take up most of the latency. Fallback: precompute the Mel filterbank and use fewer bands.
