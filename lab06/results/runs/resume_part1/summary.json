@@ -1,0 +1,91 @@
+{
+  "run_name": "resume_part1",
+  "model": "CNN",
+  "device": "cpu",
+  "interrupted": true,
+  "epochs_done": 3,
+  "final_val_acc": 0.8896,
+  "final_val_loss": 0.3126088833808899,
+  "final_train_loss": 0.30696928267045454,
+  "best_val_acc": 0.8896,
+  "test_acc": null,
+  "throughput_median": 2794.8570930122037,
+  "throughput_steady": 2803.801039153017,
+  "peak_memory_mb": 444.9765625,
+  "total_train_s": 59.6676446999918,
+  "history": [
+    {
+      "epoch": 1,
+      "lr": 0.001,
+      "train_loss": 0.5375189630681818,
+      "val_loss": 0.3908486752986908,
+      "val_acc": 0.8648,
+      "epoch_time_s": 20.434789799997816,
+      "samples_per_s": 2691.4884145275564,
+      "data_s": 10.025597799991374,
+      "forward_s": 4.855654000013601,
+      "backward_s": 4.925595600143424,
+      "optimizer_s": 0.5995491000066977,
+      "startup_s": 0.023929100003442727
+    },
+    {
+      "epoch": 2,
+      "lr": 0.001,
+      "train_loss": 0.3460946377840909,
+      "val_loss": 0.3372873293876648,
+      "val_acc": 0.8788,
+      "epoch_time_s": 19.553852299999562,
+      "samples_per_s": 2812.7449852938303,
+      "data_s": 9.535248699990916,
+      "forward_s": 4.638396199938143,
+      "backward_s": 4.772260300029302,
+      "optimizer_s": 0.5803250999160809,
+      "startup_s": 0.024135700004990213
+    },
+    {
+      "epoch": 3,
+      "lr": 0.001,
+      "train_loss": 0.30696928267045454,
+      "val_loss": 0.3126088833808899,
+      "val_acc": 0.8896,
+      "epoch_time_s": 19.67900259999442,
+      "samples_per_s": 2794.8570930122037,
+      "data_s": 9.558207499983837,
+      "forward_s": 4.629293700068956,
+      "backward_s": 4.879228899982991,
+      "optimizer_s": 0.5847861999791348,
+      "startup_s": 0.02508369999122806
+    }
+  ],
+  "cfg": {
+    "seed": 42,
+    "model": "CNN",
+    "data": {
+      "root": "data",
+      "batch_size": 128,
+      "num_workers": 0
+    },
+    "train": {
+      "epochs": 6,
+      "optimizer": "adam",
+      "lr": 0.001,
+      "momentum": 0.9,
+      "weight_decay": 0.0,
+      "scheduler": "none",
+      "step_size": 3,
+      "gamma": 0.5,
+      "patience": 1,
+      "accum_steps": 1,
+      "max_batches": null
+    },
+    "mlflow": {
+      "enabled": true,
+      "experiment": "lab06",
+      "tracking_dir": null
+    }
+  },
+  "versions": {
+    "python": "3.11.8",
+    "torch": "2.3.1+cpu"
+  }
+}

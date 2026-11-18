@@ -1,0 +1,77 @@
+{
+  "run_name": "workers_2",
+  "model": "CNN",
+  "device": "cpu",
+  "interrupted": false,
+  "epochs_done": 2,
+  "final_val_acc": 0.8788,
+  "final_val_loss": 0.3372873293876648,
+  "final_train_loss": 0.3460946377840909,
+  "best_val_acc": 0.8788,
+  "test_acc": 0.8768,
+  "throughput_median": 3737.840084061133,
+  "throughput_steady": 3617.468682604356,
+  "peak_memory_mb": 445.66796875,
+  "total_train_s": 29.459311500002514,
+  "history": [
+    {
+      "epoch": 1,
+      "lr": 0.001,
+      "train_loss": 0.5375189630681818,
+      "val_loss": 0.3908486752986908,
+      "val_acc": 0.8648,
+      "epoch_time_s": 14.255309800006216,
+      "samples_per_s": 3858.2114855179098,
+      "data_s": 0.34063769977365155,
+      "forward_s": 6.572197000205051,
+      "backward_s": 6.349055499973474,
+      "optimizer_s": 0.9596410001104232,
+      "startup_s": 0.028707999998005107
+    },
+    {
+      "epoch": 2,
+      "lr": 0.001,
+      "train_loss": 0.3460946377840909,
+      "val_loss": 0.3372873293876648,
+      "val_acc": 0.8788,
+      "epoch_time_s": 15.204001699996297,
+      "samples_per_s": 3617.468682604356,
+      "data_s": 0.35134510017815046,
+      "forward_s": 7.055184699915117,
+      "backward_s": 6.945660600002157,
+      "optimizer_s": 0.816368299885653,
+      "startup_s": 0.03394229999685194
+    }
+  ],
+  "cfg": {
+    "seed": 42,
+    "model": "CNN",
+    "data": {
+      "root": "data",
+      "batch_size": 128,
+      "num_workers": 2
+    },
+    "train": {
+      "epochs": 2,
+      "optimizer": "adam",
+      "lr": 0.001,
+      "momentum": 0.9,
+      "weight_decay": 0.0,
+      "scheduler": "none",
+      "step_size": 3,
+      "gamma": 0.5,
+      "patience": 1,
+      "accum_steps": 1,
+      "max_batches": null
+    },
+    "mlflow": {
+      "enabled": true,
+      "experiment": "lab06",
+      "tracking_dir": null
+    }
+  },
+  "versions": {
+    "python": "3.11.8",
+    "torch": "2.3.1+cpu"
+  }
+}

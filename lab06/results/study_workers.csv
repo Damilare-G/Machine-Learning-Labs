@@ -1,0 +1,6 @@
+num_workers,epoch1_time_s,epoch2_time_s,train_samples_per_s,loader_only_samples_per_s,data_wait_share_%,bottleneck
+0,22.99,24.44,2250.6,5288.1,47.6,data loading
+1,12.56,13.09,4201.8,5677.7,15.9,compute (fwd/bwd/opt)
+2,14.26,15.2,3617.5,10691.1,2.3,compute (fwd/bwd/opt)
+4,12.57,13.41,4101.6,18444.1,2.3,compute (fwd/bwd/opt)
+8,12.43,13.75,3999.2,25601.0,2.1,compute (fwd/bwd/opt)

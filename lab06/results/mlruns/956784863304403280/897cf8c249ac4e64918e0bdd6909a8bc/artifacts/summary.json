@@ -1,0 +1,119 @@
+{
+  "run_name": "accum_bs256",
+  "model": "CNN",
+  "device": "cpu",
+  "interrupted": false,
+  "epochs_done": 5,
+  "final_val_acc": 0.892,
+  "final_val_loss": 0.30562719979286196,
+  "final_train_loss": 0.2869924005681818,
+  "best_val_acc": 0.892,
+  "test_acc": 0.8877,
+  "throughput_median": 2939.6546412499492,
+  "throughput_steady": 2923.1110654509175,
+  "peak_memory_mb": 451.125,
+  "total_train_s": 93.82762629998615,
+  "history": [
+    {
+      "epoch": 1,
+      "lr": 0.001,
+      "train_loss": 0.6208447443181818,
+      "val_loss": 0.45988966398239134,
+      "val_acc": 0.8324,
+      "epoch_time_s": 18.35155510000186,
+      "samples_per_s": 2997.021217019065,
+      "data_s": 9.15250430002925,
+      "forward_s": 4.499150300005567,
+      "backward_s": 4.3994754999439465,
+      "optimizer_s": 0.28719580006145407,
+      "startup_s": 0.04455659999803174
+    },
+    {
+      "epoch": 2,
+      "lr": 0.001,
+      "train_loss": 0.37995298295454544,
+      "val_loss": 0.3771464030742645,
+      "val_acc": 0.8646,
+      "epoch_time_s": 18.673800899996422,
+      "samples_per_s": 2945.302902956973,
+      "data_s": 9.274926300160587,
+      "forward_s": 4.59590040006151,
+      "backward_s": 4.505440199893201,
+      "optimizer_s": 0.28422510001109913,
+      "startup_s": 0.043833399991854094
+    },
+    {
+      "epoch": 3,
+      "lr": 0.001,
+      "train_loss": 0.33797610085227275,
+      "val_loss": 0.3375325279712677,
+      "val_acc": 0.8786,
+      "epoch_time_s": 18.922663999997894,
+      "samples_per_s": 2906.5674896518863,
+      "data_s": 9.374401299966848,
+      "forward_s": 4.659253200064995,
+      "backward_s": 4.592717499908758,
+      "optimizer_s": 0.2832368000817951,
+      "startup_s": 0.045013399998424575
+    },
+    {
+      "epoch": 4,
+      "lr": 0.001,
+      "train_loss": 0.306217578125,
+      "val_loss": 0.3334540987014771,
+      "val_acc": 0.8842,
+      "epoch_time_s": 19.1699254999985,
+      "samples_per_s": 2869.0773993881357,
+      "data_s": 9.486091200073133,
+      "forward_s": 4.719083899981342,
+      "backward_s": 4.661734900073498,
+      "optimizer_s": 0.2896500999922864,
+      "startup_s": 0.04747520000091754
+    },
+    {
+      "epoch": 5,
+      "lr": 0.001,
+      "train_loss": 0.2869924005681818,
+      "val_loss": 0.30562719979286196,
+      "val_acc": 0.892,
+      "epoch_time_s": 18.709680799991474,
+      "samples_per_s": 2939.6546412499492,
+      "data_s": 9.19093700007943,
+      "forward_s": 4.632071699947119,
+      "backward_s": 4.588173699987237,
+      "optimizer_s": 0.28523520013550296,
+      "startup_s": 0.045289699992281385
+    }
+  ],
+  "cfg": {
+    "seed": 42,
+    "model": "CNN",
+    "data": {
+      "root": "data",
+      "batch_size": 256,
+      "num_workers": 0
+    },
+    "train": {
+      "epochs": 5,
+      "optimizer": "adam",
+      "lr": 0.001,
+      "momentum": 0.9,
+      "weight_decay": 0.0,
+      "scheduler": "none",
+      "step_size": 3,
+      "gamma": 0.5,
+      "patience": 1,
+      "accum_steps": 1,
+      "max_batches": null
+    },
+    "mlflow": {
+      "enabled": true,
+      "experiment": "lab06",
+      "tracking_dir": null
+    }
+  },
+  "versions": {
+    "python": "3.11.8",
+    "torch": "2.3.1+cpu"
+  }
+}

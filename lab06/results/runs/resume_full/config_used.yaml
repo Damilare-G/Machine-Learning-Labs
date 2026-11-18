@@ -1,0 +1,22 @@
+seed: 42
+model: CNN
+data:
+  root: data
+  batch_size: 128
+  num_workers: 0
+train:
+  epochs: 6
+  optimizer: adam
+  lr: 0.001
+  momentum: 0.9
+  weight_decay: 0.0
+  scheduler: none
+  step_size: 3
+  gamma: 0.5
+  patience: 1
+  accum_steps: 1
+  max_batches: null
+mlflow:
+  enabled: true
+  experiment: lab06
+  tracking_dir: null

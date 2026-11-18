@@ -1,0 +1,4 @@
+setup,effective_batch,final_train_loss,final_val_acc,test_acc,samples_per_s,peak_memory_MB
+"batch 256, no accumulation",256,0.287,0.892,0.8877,2923.1,451.1
+batch 64 x accumulation 4,256,0.2872,0.8918,0.8862,2832.3,444.8
+max |train_loss diff| over epochs,,0.0002,0.0002,,,

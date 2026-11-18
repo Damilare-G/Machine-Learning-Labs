@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Lenovo/Desktop/Oyefara%20Damilare%205th%20Semester/Machine%20Learning%20%28SPEC-%20Engineering%20of%20Artificial%20Intelligence%29%2C%20Project/repo/lab06/results/mlruns/956784863304403280/ecd627c995cf4d83b22412cb579bb2d5/artifacts
+end_time: 1794858933771
+entry_point_name: ''
+experiment_id: '956784863304403280'
+lifecycle_stage: active
+run_id: ecd627c995cf4d83b22412cb579bb2d5
+run_name: opt_sgd_momentum
+run_uuid: ecd627c995cf4d83b22412cb579bb2d5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1794858731616
+status: 3
+tags: []
+user_id: Lenovo

@@ -1,0 +1,2 @@
+max |grad(batch 256) - grad(4 x 64, accumulated)| = 4.098e-08  (largest gradient entry 4.627e-02)
+relative = 8.855e-07  -> equivalent

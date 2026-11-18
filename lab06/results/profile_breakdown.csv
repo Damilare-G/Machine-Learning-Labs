@@ -1,0 +1,5 @@
+phase,profiler_ms,profiler_share_%,wall_ms,wall_share_%
+data_loading,14653.2,56.6,14659.2,56.5
+forward,5202.8,20.1,5216.4,20.1
+backward,5317.0,20.5,5332.9,20.6
+optimizer_step,728.8,2.8,741.6,2.9

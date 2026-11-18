@@ -1,0 +1,23 @@
+# Single config object for the whole training pipeline (Task 1). Override any key with: --set train.lr=0.01
+seed: 42
+model: CNN               # best Lab 3 model by test accuracy: MLP | CNN | Attention  (CHANGE if yours differs)
+data:
+  root: data             # repo-root data/ (same folder Lab 3 used, so no re-download)
+  batch_size: 128
+  num_workers: 0
+train:
+  epochs: 5
+  optimizer: adam        # adam | sgd
+  lr: 0.001
+  momentum: 0.9          # used by sgd only
+  weight_decay: 0.0
+  scheduler: none        # none | step | cosine | plateau
+  step_size: 3           # step scheduler
+  gamma: 0.5             # step / plateau factor
+  patience: 1            # plateau scheduler
+  accum_steps: 1         # gradient accumulation (effective batch = batch_size * accum_steps)
+  max_batches: null      # set to a small number for smoke tests
+mlflow:
+  enabled: true
+  experiment: lab06
+  tracking_dir: null     # null -> lab06/results/mlruns ; set a SHORT path (e.g. C:/mlruns) if Windows paths get too long

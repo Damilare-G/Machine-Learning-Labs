@@ -1,0 +1,6 @@
+group,run,optimizer,scheduler,epochs,final_val_acc,best_val_acc,final_val_loss,test_acc,final_lr
+schedulers,sched_step,adam,step,10,0.9082,0.9082,0.2623,0.9013,0.000125
+schedulers,sched_cosine,adam,cosine,10,0.9092,0.9092,0.2587,0.9023,2.4471741852423235e-05
+schedulers,sched_plateau,adam,plateau,10,0.9102,0.911,0.2482,0.9033,0.001
+optimizers,opt_adam,adam,none,10,0.9102,0.911,0.2482,0.9033,0.001
+optimizers,opt_sgd_momentum,sgd,none,10,0.9022,0.9058,0.278,0.8986,0.05

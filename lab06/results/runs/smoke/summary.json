@@ -1,0 +1,63 @@
+{
+  "run_name": "smoke",
+  "model": "CNN",
+  "device": "cpu",
+  "interrupted": false,
+  "epochs_done": 1,
+  "final_val_acc": 0.078,
+  "final_val_loss": 2.304105520248413,
+  "final_train_loss": 2.3152984619140624,
+  "best_val_acc": 0.078,
+  "test_acc": 0.102,
+  "throughput_median": 1979.1872993041818,
+  "throughput_steady": 1979.1872993041818,
+  "peak_memory_mb": 346.3359375,
+  "total_train_s": 1.2934602000023006,
+  "history": [
+    {
+      "epoch": 1,
+      "lr": 0.001,
+      "train_loss": 2.3152984619140624,
+      "val_loss": 2.304105520248413,
+      "val_acc": 0.078,
+      "epoch_time_s": 1.2934602000023006,
+      "samples_per_s": 1979.1872993041818,
+      "data_s": 0.028930400032550097,
+      "forward_s": 0.9836802999634529,
+      "backward_s": 0.252687899992452,
+      "optimizer_s": 0.026957400012179278,
+      "startup_s": 0.0018811000045388937
+    }
+  ],
+  "cfg": {
+    "seed": 42,
+    "model": "CNN",
+    "data": {
+      "root": "data",
+      "batch_size": 128,
+      "num_workers": 0
+    },
+    "train": {
+      "epochs": 1,
+      "optimizer": "adam",
+      "lr": 0.001,
+      "momentum": 0.9,
+      "weight_decay": 0.0,
+      "scheduler": "none",
+      "step_size": 3,
+      "gamma": 0.5,
+      "patience": 1,
+      "accum_steps": 1,
+      "max_batches": 20
+    },
+    "mlflow": {
+      "enabled": true,
+      "experiment": "lab06",
+      "tracking_dir": null
+    }
+  },
+  "versions": {
+    "python": "3.11.8",
+    "torch": "2.3.1+cpu"
+  }
+}
